@@ -49,7 +49,7 @@ $prenom = $_POST['prenom'];
 $email = $_POST['email'];
 
 
-var_dump($nom, $prenom, $email);
+//var_dump($nom, $prenom, $email);
 $sql = "INSERT INTO users ( nom, prenom, email)
 VALUES ( '$nom', '$prenom', '$email')";
 
