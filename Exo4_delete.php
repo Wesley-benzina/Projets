@@ -16,21 +16,14 @@ try {
 
 
 
-if (isset($_GET['id']))
-{
+if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    $sql = "DELETE FROM users WHERE id = ". $id;
+    $sql = "DELETE FROM users WHERE id = " . $id;
     $stmt = $link->prepare($sql);
     $stmt->execute();
 
     header('Location: Exo4_bis.php');
-}else{
-    echo "Vous n'avez choisis de supprimer aucun visiteur !";
+
 }
-
-
 ?>
-
-
-
