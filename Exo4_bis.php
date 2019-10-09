@@ -49,7 +49,7 @@ $result = $stmt->fetchAll();
                             Vous pouvez
                             <a href="Exo4_delete.php?id=<?=$user['id']?>">Supprimer un user</a>
                             ou
-                            <a href="Exo4_edit.php">Editer un user</a>
+                            <a href="Exo4_edit.php?id=<?=$user['id']?>">Editer un user</a>
 
                         </td>
                     </tr>

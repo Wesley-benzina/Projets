@@ -7,13 +7,8 @@
 <body>
 <?php
 
-try {
     $link = new PDO('mysql:host=localhost;dbname=b3',
         'root', '');
-} catch (PDOException $e) {
-    print "Erreur !: " . $e->getMessage() . "<br>";
-}
-
 
 
 if (isset($_GET['id'])) {
@@ -23,6 +18,6 @@ if (isset($_GET['id'])) {
     $stmt = $link->prepare($sql);
     $stmt->execute();
 
-    header( ' Location: Exo4_bis.php ' ); 
+    header('Location: exo4_bis.php');
 }
 ?>

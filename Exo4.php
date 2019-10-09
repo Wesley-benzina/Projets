@@ -55,6 +55,8 @@ VALUES ( '$nom', '$prenom', '$email')";
 
 $stmt = $link->prepare($sql);
 $stmt->execute();
+        header('Location: exo4_bis.php');
+
 
 	}
 
