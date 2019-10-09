@@ -6,6 +6,9 @@
 </head>
 <body>
 <?php
+include "Exo4.php";
+
+session_start();
 
 try {
     $link = new PDO('mysql:host=localhost;dbname=b3',
@@ -14,11 +17,19 @@ try {
     print "Erreur !: " . $e->getMessage() . "<br>";
 }
 //var_dump($nom, $prenom, $email);
-$sql = " DELETE FROM `users` WHERE `users`.`id` = 53 ";
+
+if (isset($_SESSION['id']))
+{
+    $id = $_SESSION['id'];
+
+$sql = " DELETE FROM `users` WHERE id =  ". $id;
 
 $stmt = $link->prepare($sql);
-$stmt->execute();
+$stmt->execute();}
 
-$result = $stmt->fetchAll();
+else{
+    echo "Vous n'avez choisis de supprimer aucun visiteur !";
+}
 
+header('Location: Exo4.php');
 ?>

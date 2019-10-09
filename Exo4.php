@@ -19,24 +19,37 @@
 
 
 <?php
+session_start ();
 
 try {
     $link = new PDO('mysql:host=localhost;dbname=b3',
         'root', '');
-} catch (PDOException $e) {
-    print "Erreur !: " . $e->getMessage() . "<br>";
 }
-session_start ();
+catch (PDOException $e) {
+    print 'Erreur !: ' . $e->getMessage() . "<br>";
+}
+
 	if ( isset ( $_SESSION [ ' data ' ])) {
 		$_SESSION [ ' data ' ] = [];
 	}
-	if (check ( $_POST )) {
+
+
+/*	function check($post){
+	    if(isset($post['valider'])) {
+            if (!empty($post['nom']) && !empty($post['prenom']) && !empty($post['email'])) {
+                return true;
+            }
+        }
+	    return false;
+	    }
+*/
+	if (!empty( $_POST['prenom'])) {
 $nom = $_POST['nom'];
 $prenom = $_POST['prenom'];
 $email = $_POST['email'];
 
 
-//var_dump($nom, $prenom, $email);
+var_dump($nom, $prenom, $email);
 $sql = "INSERT INTO users ( nom, prenom, email)
 VALUES ( '$nom', '$prenom', '$email')";
 
@@ -50,15 +63,5 @@ die();
 ?>
 </body>
 </html>
-<?php
-function check($post) {
-    if (isset($post['send'])) {
-        if (!empty($post['nom']) && !empty($post['prenom']) && !empty($post['email'])) {
-            return true;
-        }
-        return false;
-    }
-    return false;
-}
-?>
+
 
