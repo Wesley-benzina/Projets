@@ -23,18 +23,23 @@ try {
 }
 
 
+if (isset($_POST['send'])) {
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
 
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-
-    $nom=$_POST['nom'];
-    $prenom=$_POST['prenom'];
-    $email=$_POST['email'];
-
-    $sql = "UPDATE users SET `nom`='$nom',`prenom`='$prenom',`email`='$email' WHERE id = '$id'";
-    $stmt = $link->prepare($sql);
-    $stmt->execute();
+        $nom = $_POST['nom'];
+        $prenom = $_POST['prenom'];
+        $email = $_POST['email'];
 
 
+        $sql = "UPDATE users SET `nom`='$nom',`prenom`='$prenom',`email`='$email' WHERE id = '$id'";
+        $stmt = $link->prepare($sql);
+        $stmt->execute();
 
+        header('Location: exo4_bis.php');
+
+    }
+}
+else{
+    echo "Veuillez remplir le formulaire";
 }
