@@ -23,7 +23,6 @@ if (isset($_GET['id'])) {
     $stmt = $link->prepare($sql);
     $stmt->execute();
 
-    header('Location: Exo4_bis.php');
-
+    
 }
 ?>
